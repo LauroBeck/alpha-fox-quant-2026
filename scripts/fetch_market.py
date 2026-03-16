@@ -1,7 +1,6 @@
 import json
 import os
 
-# Verified Market Anchors: March 16, 2026
 market_data = {
     "gold": 5013.21,
     "brent": 104.15,
@@ -11,7 +10,6 @@ market_data = {
 }
 
 def export_for_cpp():
-    # Save as JSON for the C++ monitor to read
     os.makedirs('data', exist_ok=True)
     with open('data/market_snapshot.json', 'w') as f:
         json.dump(market_data, f)
