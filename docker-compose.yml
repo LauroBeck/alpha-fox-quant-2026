@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  alpha-fox-engine:
+    build: .
+    container_name: alpha_fox_2026
+    volumes:
+      - .:/app
+    environment:
+      - ENV=PROD
+      - ARCHITECT=LauroBeckDBA
+    restart: on-failure
+
+  # Future: Adding a local redis/db for tick-data persistence
+  # telemetry-db:
+  #   image: redis:alpine
