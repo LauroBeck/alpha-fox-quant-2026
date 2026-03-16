@@ -15,3 +15,13 @@ This repository contains 13 C++ intelligence modules designed to track the "AI-I
 mkdir -p bin
 g++ -O3 -std=c++20 src/*.cpp -o bin/fox_suite
 \`\`\`
+
+## 📊 March 15 Intelligence Results
+Captured real-time market divergence and architectural benchmarks.
+
+<p align="center">
+  <img src="Screenshot From 2026-03-15 21-43-21.png" width="45%" />
+  <img src="Screenshot From 2026-03-15 21-44-31.png" width="45%" />
+</p>
+
+*Left: Commodity Stress Test Benchmarks ($103.82 Brent).* *Right: Project Stargate Financing & AI Infra Nodes.*
