@@ -1,0 +1,16 @@
+services:
+  alpha-fox-engine:
+    build: .
+    container_name: alpha_fox_2026
+    volumes:
+      # Map the host's current directory to the container's /app
+      - .:/app
+    environment:
+      - ENV=PROD
+      - ARCHITECT=LauroBeckDBA
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "find stargate_listener.py -mmin -5 || exit 1"]
+      interval: 1m
+      timeout: 10s
+      retries: 3

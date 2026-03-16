@@ -1,0 +1,5 @@
+[
+  {"Ticker": "GC=F", "Name": "Gold Spot", "Price": 5013.21, "BreakoutProb": 0.71},
+  {"Ticker": "CL=F", "Name": "Brent Crude", "Price": 104.15, "BreakoutProb": 0.45},
+  {"Ticker": "^VIX", "Name": "Volatility Index", "Price": 23.51, "BreakoutProb": 0.12}
+]
