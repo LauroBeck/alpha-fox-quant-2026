@@ -1,27 +1,18 @@
-# Alpha-Fox Quant 2026
-**Enterprise Architecture & Financial Intelligence Suite**
+## 📊 Intelligence Dashboards (March 15, 2026)
+> **Market Status:** High Volatility Detected | **Brent $103.82** | **Spot Gold $5,023.10**
 
-### 🏛️ 2026 Market Thesis
-This repository contains 13 C++ intelligence modules designed to track the "AI-Infrastructure-Energy" trifecta. 
-
-**Current Anchors (March 15, 2026):**
-* **Energy:** Brent Crude $103.82 (Hormuz Risk)
-* **Bullion:** Spot Gold $5,023.10
-* **CapEx:** $1.25T Stargate Supercycle Logic
-* **Banking:** JPM $19.8B Tech Budget Integration
-
-### 🚀 Build Instructions
-\`\`\`bash
-mkdir -p bin
-g++ -O3 -std=c++20 src/*.cpp -o bin/fox_suite
-\`\`\`
-
-## 📊 March 15 Intelligence Results
-Captured real-time market divergence and architectural benchmarks.
+The following dashboards visualize the real-time execution of the 13 C++ modules in the **Alpha-Fox** environment, specifically monitoring the **Strait of Hormuz** conflict premium and **Project Stargate** infrastructure financing.
 
 <p align="center">
-  <img src="Screenshot From 2026-03-15 21-43-21.png" width="45%" />
-  <img src="Screenshot From 2026-03-15 21-44-31.png" width="45%" />
+  <img src="Screenshot From 2026-03-15 21-43-21.png" width="48%" alt="Market Stress Test" />
+  <img src="Screenshot From 2026-03-15 21-44-31.png" width="48%" alt="Infra Strategy" />
 </p>
 
-*Left: Commodity Stress Test Benchmarks ($103.82 Brent).* *Right: Project Stargate Financing & AI Infra Nodes.*
+*Visual validation of the quantitative logic gates (Energy Shock vs. AI Capex).*
+
+---
+
+### 🏛️ Senior Architect's Log: March 15
+* **Energy:** Brent Crude holding at **$103.82** following the largest supply shock in history.
+* **Hedge:** Spot Gold maintaining critical support floor at **$5,023.10**.
+* **Alpha:** Divergence between **Project Stargate** financing tranches and South Korean chip export surges (+175.9%).
