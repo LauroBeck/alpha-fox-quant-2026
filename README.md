@@ -1,5 +1,5 @@
 ## 📊 Intelligence Dashboards (March 15, 2026)
-> **Market Status:** High Volatility Detected | **Brent $103.82** | **Spot Gold $5,023.10**
+> **Status:** High Volatility Detected | **Brent $103.82** | **Gold $5,023.10**
 
 The following dashboards visualize the real-time execution of the 13 C++ modules in the **Alpha-Fox** environment, specifically monitoring the **Strait of Hormuz** conflict premium and **Project Stargate** infrastructure financing.
 
@@ -9,7 +9,7 @@ The following dashboards visualize the real-time execution of the 13 C++ modules
 </p>
 
 ### 🏛️ The March 15 Market Anchors
-I've verified today's numbers to ensure the **Alpha-Fox** logic is technically accurate for the 2026 roadmap:
+These verified numbers ensure the **Alpha-Fox** logic remains technically accurate for the 2026 roadmap:
 
 * **Gold:** Steadiest at **$5,023.10/oz**, holding firm as a safe haven despite a stronger USD.
 * **Brent Crude:** Trading at **$103.82/bbl**, largely due to the ongoing **Strait of Hormuz** blockade.
@@ -18,8 +18,11 @@ I've verified today's numbers to ensure the **Alpha-Fox** logic is technically a
 
 ---
 
-### 🚀 Module Focus: Infrastructure & Energy
-* **Project Stargate:** Monitoring financing tranches for the $1.25T AI infrastructure supercycle.
-* **Conflict Premium:** Real-time calculation of inflationary drag caused by the Hormuz supply shock.
-* **Alpha Generation:** Divergence modeling between Big Tech CapEx and the JPM tech budget expansion.
+### 🚀 Build & Deployment
+\`\`\`bash
+mkdir -p bin
+g++ -O3 -std=c++20 src/*.cpp -Iinclude/ -o bin/fox_suite
+./bin/fox_suite
+\`\`\`
 
+*Visual validation of the quantitative logic gates (Energy Shock vs. AI Capex).*
