@@ -9,8 +9,13 @@ services:
     environment:
       - ENV=PROD
       - ARCHITECT=LauroBeckDBA
-    restart: on-failure
+    restart: always
+    healthcheck:
+      # Check if the Stargate alert log has been touched in the last 5 mins
+      test: ["CMD-SHELL", "find stargate_listener.py -mmin -5 || exit 1"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
+      start_period: 30s
 
-  # Future: Adding a local redis/db for tick-data persistence
-  # telemetry-db:
-  #   image: redis:alpine
+  # Ready for future expansion (e.g., Redis for tick-data)
