@@ -12,6 +12,9 @@ python3 ../quant-flow-intelligence-2026/bloomberg_pulse.py
 # Step 3: Sovereign Alpha Quantum Audit (Qiskit v2.3)
 source quantum_env/bin/activate
 python3 sovereign_alpha.py
+python3 stargate_listener.py
+python3 stargate_listener.py
+python3 stargate_listener.py
 
 # Step 4: Generate Markdown Audit
 ./deploy_audit.sh
