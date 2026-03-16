@@ -1,35 +1,35 @@
 #include <iostream>
 #include <iomanip>
-#include <thread>
-#include <chrono>
+#include <vector>
 
-struct TechBudget {
-    const double TOTAL_ANNUAL_BUDGET = 19.8e9;  // $19.8 Billion
-    const double NII_TARGET = 104.5e9;          // $104.5 Billion
-    double current_spend = 0.0;
-    double infra_inflation_index = 1.0;
+struct MarketState {
+    double gold = 5013.21;
+    double brent = 104.15;
+    double vix = 27.19;
 };
 
 int main() {
-    TechBudget jpm2026;
-    std::cout << "--- [ALPHA-FOX] JPM TECH BUDGET MONITOR ---" << std::endl;
-    std::cout << "Target NII: $104.5B | Tech CapEx: $19.8B" << std::endl;
+    MarketState m16;
+    const double JPM_TECH_BUDGET = 19.8e9;
+    const double STARGATE_PHASE_1 = 125.0e9; // Part of the $1.25T total
+    
+    std::cout << "--- [ALPHA-FOX] JPM & STARGATE ARCHITECTURE MONITOR ---" << std::endl;
+    std::cout << "Location: Rio de Janeiro | Time: March 16, 2026" << std::endl;
+    std::cout << "Market Anchor: Brent Crude $" << m16.brent << " (Hormuz Premium Active)" << std::endl;
 
-    // Verified Anchors for March 16, 2026
-    double v_gold = 5013.21;
-    double v_brent = 104.15;
-    double v_vix = 27.19;
+    double cumulative_spend = 0;
+    double hardware_cost_multiplier = (m16.brent > 100.0) ? 1.025 : 1.0;
 
-    for (int q = 1; q <= 4; ++q) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(200));
-        // Logic: Energy shocks (> $100 Brent) drive infrastructure cost overruns
-        jpm.infra_inflation_index += (v_brent > 100.0) ? 0.025 : 0.01;
-        double quarterly_spend = (jpm2026.TOTAL_ANNUAL_BUDGET / 4) * jpm.infra_inflation_index;
-        jpm2026.current_spend += quarterly_spend;
-
-        std::cout << "Q" << q << " Spend: $" << (quarterly_spend / 1e6) << "M | Market: Brent $" << v_brent << std::endl;
+    std::cout << "\n[FISCAL PROJECTION]" << std::endl;
+    for(int q=1; q<=4; q++) {
+        double q_spend = (JPM_TECH_BUDGET / 4) * hardware_cost_multiplier;
+        cumulative_spend += q_spend;
+        std::cout << " Q" << q << " Projected CapEx: $" << std::fixed << std::setprecision(2) << (q_spend/1e6) << "M" << std::endl;
     }
 
-    std::cout << "Final 2026 Projected Spend: $" << (jpm2026.current_spend / 1e9) << "B" << std::endl;
+    double variance = ((cumulative_spend - JPM_TECH_BUDGET) / JPM_TECH_BUDGET) * 100;
+    std::cout << "\nFinal 2026 Variance: " << variance << "%" << std::endl;
+    if(variance > 2.0) std::cout << ">> WARNING: Supply chain inflation exceeding NII buffer." << std::endl;
+
     return 0;
 }
