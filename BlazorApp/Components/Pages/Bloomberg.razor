@@ -1,0 +1,525 @@
+@page "/bloomberg"
+@using System.Globalization
+
+<PageTitle>Bloomberg Terminal - Alpha Fox Quant</PageTitle>
+
+<div class="bloomberg-container">
+    <!-- Header -->
+    <header class="bloomberg-header">
+        <div class="header-top">
+            <h1>Bloomberg Terminal</h1>
+            <div class="header-controls">
+                <span class="live-indicator">🔴 LIVE</span>
+                <select class="edition-select">
+                    <option>US Edition</option>
+                    <option>Latin America Edition</option>
+                    <option>EMEA Edition</option>
+                    <option>APAC Edition</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="content-grid">
+        <!-- Left Column: Video & Charts -->
+        <div class="left-column">
+            <!-- Featured Video Player -->
+            <div class="featured-video">
+                <div class="video-placeholder">
+                    <div class="play-button">▶</div>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='300'%3E%3Crect fill='%23001a33' width='100%25' height='100%25'/%3E%3C/svg%3E" alt="Featured content" />
+                    <h3>India's Rupee Defense Raises Question of How Far RBI Will Go</h3>
+                    <p>Page 2: Need to Know</p>
+                </div>
+            </div>
+
+            <!-- Market Data Panel -->
+            <div class="market-panel">
+                <div class="market-section">
+                    <h4>Markets Overview</h4>
+                    <div class="index-row">
+                        <div class="index-card">
+                            <span class="index-name">NSE CNXNIFTY INDEX</span>
+                            <span class="index-value">22520.43</span>
+                            <span class="index-change positive">+288.65 | +1.30%</span>
+                        </div>
+                        <div class="index-card">
+                            <span class="index-name">GOLD</span>
+                            <span class="index-value">+617.1</span>
+                            <span class="index-change positive">+1.38%</span>
+                        </div>
+                        <div class="index-card">
+                            <span class="index-name">SILVER FUT</span>
+                            <span class="index-value">+162</span>
+                            <span class="index-change positive">+2.25%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart Placeholder -->
+                <div class="chart-container">
+                    <canvas id="marketChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: TV Schedule & News -->
+        <div class="right-column">
+            <!-- TV Schedule -->
+            <div class="tv-schedule">
+                <h3>TV Schedule</h3>
+                <div class="schedule-item now">
+                    <span class="time-label">Now</span>
+                    <div class="program-info">
+                        <h4>Bloomberg Investigates: Inside the Legal Fight Against Trump's Deportation Campaign</h4>
+                        <span class="channel">Bloomberg TV</span>
+                    </div>
+                </div>
+                <div class="schedule-item next">
+                    <span class="time-label">Next</span>
+                    <div class="program-info">
+                        <h4>Bloomberg Primer: The Business of Adapting to Flood Risk</h4>
+                        <span class="channel">Bloomberg TV</span>
+                    </div>
+                </div>
+                <button class="full-schedule-btn">Full schedule →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Streaming Now Section -->
+    <section class="streaming-section">
+        <div class="section-header">
+            <h2>Streaming Now</h2>
+            <a href="#" class="explore-more">Explore More →</a>
+        </div>
+        <div class="streaming-grid">
+            <div class="stream-card">
+                <div class="stream-thumbnail">
+                    <div class="live-badge">🔴 Live</div>
+                    <div class="play-overlay">▶</div>
+                </div>
+                <p>Bloomberg Markets and Finance</p>
+            </div>
+            <div class="stream-card">
+                <div class="stream-thumbnail">
+                    <div class="live-badge">🔴 Live</div>
+                    <div class="play-overlay">▶</div>
+                </div>
+                <p>Bloomberg Politics Today</p>
+            </div>
+            <div class="stream-card">
+                <div class="stream-thumbnail">
+                    <div class="live-badge">🔴 Live</div>
+                    <div class="play-overlay">▶</div>
+                </div>
+                <p>Bloomberg Technology</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+    :root {
+        --bg-dark: #0a0e27;
+        --bg-secondary: #111827;
+        --border-color: #1f2937;
+        --text-light: #e5e7eb;
+        --text-muted: #9ca3af;
+        --accent-orange: #f97316;
+        --accent-blue: #0ea5e9;
+        --positive-green: #10b981;
+    }
+
+    .bloomberg-container {
+        background: var(--bg-dark);
+        color: var(--text-light);
+        min-height: 100vh;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    /* Header */
+    .bloomberg-header {
+        background: linear-gradient(to bottom, #111827, #0f1419);
+        border-bottom: 2px solid var(--border-color);
+        padding: 1.5rem 2rem;
+        sticky: top 0;
+        z-index: 100;
+    }
+
+    .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+
+    .bloomberg-header h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0;
+        letter-spacing: -0.5px;
+    }
+
+    .header-controls {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    .live-indicator {
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 0.4rem 0.8rem;
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        border-radius: 4px;
+    }
+
+    .edition-select {
+        background: var(--bg-secondary);
+        color: var(--text-light);
+        border: 1px solid var(--border-color);
+        padding: 0.5rem 0.75rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.9rem;
+    }
+
+    /* Content Grid */
+    .content-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+        padding: 2rem;
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+
+    /* Featured Video */
+    .featured-video {
+        margin-bottom: 2rem;
+    }
+
+    .video-placeholder {
+        position: relative;
+        background: linear-gradient(135deg, #001a33 0%, #0f1419 100%);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        overflow: hidden;
+        aspect-ratio: 16/9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .video-placeholder img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .play-button {
+        position: relative;
+        z-index: 2;
+        font-size: 3.5rem;
+        width: 80px;
+        height: 80px;
+        background: rgba(0, 0, 0, 0.5);
+        border: 2px solid var(--accent-orange);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .play-button:hover {
+        background: rgba(0, 0, 0, 0.7);
+        transform: scale(1.1);
+    }
+
+    .video-placeholder h3 {
+        position: relative;
+        z-index: 2;
+        font-size: 1.25rem;
+        margin: 1rem;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .video-placeholder p {
+        position: relative;
+        z-index: 2;
+        color: var(--accent-orange);
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    /* Market Panel */
+    .market-panel {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 1.5rem;
+    }
+
+    .market-section h4 {
+        margin: 0 0 1rem 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 0.75rem;
+    }
+
+    .index-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .index-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .index-name {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .index-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .index-change {
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+
+    .index-change.positive {
+        color: var(--positive-green);
+    }
+
+    .index-change.negative {
+        color: #ef4444;
+    }
+
+    .chart-container {
+        width: 100%;
+        height: 250px;
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-muted);
+    }
+
+    /* TV Schedule */
+    .tv-schedule {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 1.5rem;
+        height: fit-content;
+    }
+
+    .tv-schedule h3 {
+        margin: 0 0 1.5rem 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .schedule-item {
+        display: grid;
+        grid-template-columns: 60px 1fr;
+        gap: 1rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .schedule-item:last-of-type {
+        border-bottom: none;
+    }
+
+    .time-label {
+        font-weight: 600;
+        font-size: 0.85rem;
+        color: var(--accent-orange);
+        text-transform: uppercase;
+    }
+
+    .program-info h4 {
+        margin: 0 0 0.25rem 0;
+        font-size: 0.95rem;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+
+    .channel {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+    }
+
+    .full-schedule-btn {
+        width: 100%;
+        padding: 0.75rem;
+        margin-top: 1rem;
+        background: transparent;
+        border: 1px solid var(--border-color);
+        color: var(--text-light);
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.2s ease;
+    }
+
+    .full-schedule-btn:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: var(--accent-blue);
+    }
+
+    /* Streaming Section */
+    .streaming-section {
+        padding: 2rem;
+        max-width: 1600px;
+        margin: 0 auto;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .section-header h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .explore-more {
+        color: var(--accent-blue);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: color 0.2s ease;
+    }
+
+    .explore-more:hover {
+        color: var(--accent-orange);
+    }
+
+    .streaming-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .stream-card {
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+    .stream-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .stream-thumbnail {
+        position: relative;
+        background: linear-gradient(135deg, #001a33 0%, #0f1419 100%);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0.75rem;
+    }
+
+    .live-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        background: rgba(239, 68, 68, 0.2);
+        color: #ef4444;
+        padding: 0.4rem 0.6rem;
+        border-radius: 3px;
+        z-index: 2;
+    }
+
+    .play-overlay {
+        font-size: 2.5rem;
+        color: var(--accent-orange);
+        opacity: 0.7;
+        transition: opacity 0.2s ease;
+    }
+
+    .stream-card:hover .play-overlay {
+        opacity: 1;
+    }
+
+    .stream-card p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: var(--text-light);
+        font-weight: 500;
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+        .content-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .index-row {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .header-top {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .streaming-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+@code {
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Chart drawing code would go here
+            // For now, this is a placeholder
+        }
+    }
+}
